@@ -1,4 +1,4 @@
-﻿using AssignmentLibrary;
+﻿using AssignmentManagement.Core;
 
 try
 {

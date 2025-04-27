@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AssignmentLibrary;
+namespace AssignmentManagement.Core;
 
 public class AssignmentService
 {
