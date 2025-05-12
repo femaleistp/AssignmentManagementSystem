@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using AssignmentManagement.API.Controllers;
 using AssignmentManagement.API.Models;
 using AssignmentManagement.API.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace AssignmentManagement.API
+namespace AssignmentManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
