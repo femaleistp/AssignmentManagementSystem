@@ -1,0 +1,10 @@
+## Week 5 Lab Reflection
+
+Prompt: "What was different about working with HTTP vs. the console?"
+
+My response:  Working with the API had many more layers involved, while more 
+complex at the same time separation of concerns was more apparent. The console 
+was a single layer of input and output, while the API had multiple layers of 
+abstraction. The API also required more setup and configuration, which made 
+it more complex to work with. However, the API also provided more functionality 
+and flexibility, which made it more powerful in the long run.
