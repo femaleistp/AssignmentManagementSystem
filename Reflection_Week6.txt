@@ -1,0 +1,14 @@
+## Week 6 Lab Reflection
+
+Prompt: "Summarize how dependency injection and abstraction improved design."
+
+My response: Using abstraction allowed me to separate concerns across different 
+projects by moving interfaces and models into the core project and placing 
+concrete implementations like the formatter and logger into the UI layer. 
+Dependency injection helped me decouple those implementations from the service 
+logic, making my code more flexible and easier to test. I updated constructors to 
+accept interfaces instead of concrete types and created fake dependencies for 
+testing. This design made it easier to swap loggers and formatters without 
+changing the service code. Refactoring for abstraction and injection also helped 
+me isolate errors during API testing, especially when working with Guid-based 
+models and HTTP routing.
