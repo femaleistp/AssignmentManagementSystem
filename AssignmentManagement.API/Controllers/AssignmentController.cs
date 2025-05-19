@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using AssignmentManagement.API.Models;
-using AssignmentManagement.API.Interfaces;
+using AssignmentManagement.Core.Models;
+using AssignmentManagement.Core.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,10 +26,10 @@ namespace AssignmentManagement.API.Controllers
         }
 
         // GET api/<AssignmentController>/title
-        [HttpGet("{title}")]
-        public IActionResult Get(string title)
+        [HttpGet("{id:guid}")]
+        public IActionResult Get(Guid id)
         {
-            var assignment = _service.GetAssignment(title);
+            var assignment = _service.GetAssignment(id);
             if (assignment == null)
             {
                 return NotFound();
@@ -42,20 +42,20 @@ namespace AssignmentManagement.API.Controllers
         public IActionResult Create([FromBody] Assignment assignment)
         {
             _service.Add(assignment);
-            return CreatedAtAction(nameof(Get), new { title = assignment.Title }, assignment);
+            return CreatedAtAction(nameof(Get), new { id = assignment.Id }, assignment);
         }
 
         // PUT api/<AssignmentController>/5
-        [HttpPut("{id}")]
+        [HttpPut("{id:guid}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
         // DELETE api/<AssignmentController>/5
-        [HttpDelete("{title}")]
-        public IActionResult Delete(string title)
+        [HttpDelete("{id:guid}")]
+        public IActionResult Delete(Guid id)
         {
-            _service.Delete(title);
+            _service.Delete(id);
             return NoContent();
         }
     }

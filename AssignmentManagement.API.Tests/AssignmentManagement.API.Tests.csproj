@@ -17,6 +17,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AssignmentManagement.API\AssignmentManagement.API.csproj" />
+    <ProjectReference Include="..\AssignmentManagement.Core\AssignmentManagement.Core.csproj" />
+    <ProjectReference Include="..\AssignmentManagement.UI\AssignmentManagement.UI.csproj" />
   </ItemGroup>
 
   <ItemGroup>

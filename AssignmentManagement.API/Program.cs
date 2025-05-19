@@ -1,5 +1,8 @@
-using AssignmentManagement.API.Interfaces;
-using AssignmentManagement.API.Services;
+using AssignmentManagement.Core.Interfaces;
+using AssignmentManagement.Core.Services;
+using AssignmentManagement.UI.Services;
+
+
 
 namespace AssignmentManagement.API
 {
@@ -14,6 +17,9 @@ namespace AssignmentManagement.API
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             // Register the NoteService as a singleton
+            builder.Services.AddSingleton<IAssignmentFormatter, AssignmentFormatter>();
+            builder.Services.AddSingleton<IAppLogger, ConsoleAppLogger>();
+
             builder.Services.AddSingleton<IAssignmentService, AssignmentService>();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();

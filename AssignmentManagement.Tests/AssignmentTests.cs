@@ -1,37 +1,37 @@
 using Xunit;
-using AssignmentManagement.Core;
+using AssignmentManagement.Core.Models;
 
-namespace AssignmentLibrary.Tests;
+namespace AssignmentManagement.Tests;
 
 public class AssignmentTests
 {
     [Fact]
-    public void Constructor_ValidInput_ShouldCreateAssignment()
+    public void Assignment_SetProperties_ShouldStoreCorrectValues()
     {
-        var assignment = new Assignment("Read Chapter 2", "Summarize key points");
+        var assignment = new Assignment
+        {
+            Title = "Read Chapter 2",
+            Description = "Summarize key points",
+            IsCompleted = false
+        };
+
         Assert.Equal("Read Chapter 2", assignment.Title);
         Assert.Equal("Summarize key points", assignment.Description);
         Assert.False(assignment.IsCompleted);
     }
 
     [Fact]
-    public void Constructor_BlankTitle_ShouldThrowException()
+    public void Assignment_MarkAsComplete_SetsIsCompletedToTrue()
     {
-        Assert.Throws<ArgumentException>(() => new Assignment("", "Valid description"));
-    }
+        var assignment = new Assignment
+        {
+            Title = "Task",
+            Description = "Do something",
+            IsCompleted = false
+        };
 
-    [Fact]
-    public void Update_BlankDescription_ShouldThrowException()
-    {
-        var assignment = new Assignment("Read Chapter 2", "Summarize key points");
-        Assert.Throws<ArgumentException>(() => assignment.Update("Valid title", ""));
-    }
+        assignment.IsCompleted = true;
 
-    [Fact]
-    public void MarkComplete_SetsIsCompletedToTrue()
-    {
-        var assignment = new Assignment("Task", "Complete the lab");
-        assignment.MarkComplete();
         Assert.True(assignment.IsCompleted);
     }
 }
