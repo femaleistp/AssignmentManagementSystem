@@ -1,0 +1,38 @@
+Student Name: Brittany Hancock
+Date Submitted: May 23, 2025
+
+---
+PURPOSE OF CHANGE:
+Add an optional Notes field to the Assignment model to support user-supplied context that is not captured in the Title or Description. This supports stakeholder need for metadata without altering the core feature.
+
+---
+SUMMARY OF CHANGES:
+- Added string? Notes property to Assignment model with private setter
+- Updated constructor to allow optional Notes input
+- Added Update() method for encapsulated field updates
+- Updated AssignmentService to use Update() for changes
+- Added AssignmentDto to API controller for safe binding
+- Console app updated to display Notes
+- Formatter updated to print Notes
+- API and Swagger display Notes correctly
+- All test classes updated with coverage for Notes
+
+---
+TDD PROCESS USED:
+- Wrote failing unit test to confirm Notes can be stored
+- Implemented Notes property and constructor support
+- Refactored code for encapsulation and consistency
+- Added integration test to validate Notes via API
+- All tests run and passed after each step
+
+---
+CHALLENGES OR DESIGN DECISIONS:
+- Had to implement AssignmentDto to support binding due to private setters
+- Ensured constructor and Update method support consistent encapsulated changes
+- Rewrote failing tests to align with new model constraints
+
+---
+NEXT STEPS OR RECOMMENDATIONS:
+- Add field validation for Notes (e.g., max length)
+- Add front-end or CLI interactivity to input and edit Notes
+- Add tests for edge cases like null, empty, and large Notes
