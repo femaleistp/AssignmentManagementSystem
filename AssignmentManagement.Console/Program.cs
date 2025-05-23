@@ -13,7 +13,7 @@ var provider = services.BuildServiceProvider();
 var service = provider.GetRequiredService<IAssignmentService>();
 
 // Use the service to add an assignment
-var assignment = new Assignment { Title = "Console Demo", Description = "Test from console" };
+var assignment = new Assignment("Console Demo", "Test from console", false, "Console note");
 service.Add(assignment);
 
 // Format and print

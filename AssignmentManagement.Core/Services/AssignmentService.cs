@@ -39,8 +39,7 @@ namespace AssignmentManagement.Core.Services
             var existingAssignment = GetAssignment(assignment.Id);
             if (existingAssignment != null)
             {
-                existingAssignment.Description = assignment.Description;
-                existingAssignment.IsCompleted = assignment.IsCompleted;
+                existingAssignment.Update(assignment.Description, assignment.IsCompleted, assignment.Notes);
                 _logger.Log($"Updated: {_formatter.Format(existingAssignment)}");
                 return existingAssignment;
             }

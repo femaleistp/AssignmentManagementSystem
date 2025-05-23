@@ -16,6 +16,7 @@ namespace AssignmentManagement.UI.Services
             return $"Assignment ID: {assignment.Id}\n" +
                    $"Title: {assignment.Title}\n" +
                    $"Description: {assignment.Description}\n" +
+                   $"Notes: {assignment.Notes}\n" +
                    $"Status: {(assignment.IsCompleted ? "Completed" : "Incompleted")}\n";
         }
     }

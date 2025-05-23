@@ -11,12 +11,7 @@ public class AssignmentFormatterTests
     {
         // Arrange
         var formatter = new AssignmentFormatter();
-        var assignment = new Assignment
-        {
-            Title = "Format Test",
-            Description = "Check formatting",
-            IsCompleted = true
-        };
+        var assignment = new Assignment("Format Test", "Check formatting", true, "Extra notes");
 
         // Act
         var result = formatter.Format(assignment);
@@ -25,5 +20,6 @@ public class AssignmentFormatterTests
         Assert.Contains("Format Test", result);
         Assert.Contains("Check formatting", result);
         Assert.Contains("Completed", result);
+        Assert.Contains("Extra notes", result);
     }
 }

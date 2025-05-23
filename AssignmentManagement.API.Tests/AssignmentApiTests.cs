@@ -100,5 +100,22 @@ namespace AssignmentManagement.API.Tests
             Assert.Equal(System.Net.HttpStatusCode.NotFound, getResponse.StatusCode);
         }
 
+        [Fact]
+        public async Task Can_Create_AndRetrieve_Assignment_WithNotes_ViaApi()
+        {
+            var assignmentJson = new StringContent(
+                JsonSerializer.Serialize(new { Title = "API Test", Description = "API Desc", Notes = "API Notes" }),
+                Encoding.UTF8,
+                "application/json");
+
+            var postResponse = await _client.PostAsync("/api/Assignment", assignmentJson);
+            postResponse.EnsureSuccessStatusCode();
+
+            var getResponse = await _client.GetAsync("/api/Assignment/GetAll");
+            var getBody = await getResponse.Content.ReadAsStringAsync();
+
+            Assert.Contains("API Notes", getBody);
+        }
+
     }
 }

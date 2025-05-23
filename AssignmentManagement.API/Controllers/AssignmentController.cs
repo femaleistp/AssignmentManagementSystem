@@ -39,11 +39,13 @@ namespace AssignmentManagement.API.Controllers
 
         // POST api/<AssignmentController>
         [HttpPost]
-        public IActionResult Create([FromBody] Assignment assignment)
+        public IActionResult Create([FromBody] AssignmentDto dto)
         {
+            var assignment = new Assignment(dto.Title, dto.Description, dto.IsCompleted, dto.Notes);
             _service.Add(assignment);
             return CreatedAtAction(nameof(Get), new { id = assignment.Id }, assignment);
         }
+
 
         // PUT api/<AssignmentController>/5
         [HttpPut("{id:guid}")]
@@ -58,5 +60,14 @@ namespace AssignmentManagement.API.Controllers
             _service.Delete(id);
             return NoContent();
         }
+
+        public class AssignmentDto
+        {
+            public string Title { get; set; } = string.Empty;
+            public string Description { get; set; } = string.Empty;
+            public bool IsCompleted { get; set; } = false;
+            public string? Notes { get; set; } = string.Empty;
+        }
+
     }
 }

@@ -29,8 +29,8 @@ public class AssignmentServiceTests
     {
         // Arrange
         var service = new AssignmentService(new FakeLogger(), new FakeFormatter());
-        var a1 = new Assignment { Title = "Incomplete Task", Description = "Do something", IsCompleted = false };
-        var a2 = new Assignment { Title = "Completed Task", Description = "Do something else", IsCompleted = true };
+        var a1 = new Assignment("Incomplete Task", "Do something", false, "notes1");
+        var a2 = new Assignment("Completed Task", "Do something else", true, "notes2");
 
         service.Add(a1);
         service.Add(a2);
